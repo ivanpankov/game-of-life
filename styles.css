@@ -1,0 +1,26 @@
+#universe {
+  border: 2px solid gray;
+  font-size: 16px;
+  line-height: 12px;
+  cursor: default;
+  display: inline-block;
+}
+
+#universe > div {
+  display: flex;
+  /* gap: 1px; */
+  /* margin-bottom: 1px; */
+}
+
+#universe > div > div {
+  width: 14px;
+  height: 14px;
+  background-color: lightgray;
+  border: 1px solid white;
+  /* margin: 1px; */
+  /* gap: 1px; */
+}
+
+#universe > div > div.live {
+  background-color: black;
+}
