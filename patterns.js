@@ -40,6 +40,19 @@ class Pattern {
   }
 }
 
+const GRID = [
+  "123456789|123456789|123456789|",
+  "2        |         |         |",
+  "3        |         |         |",
+  "4        |         |         |",
+  "5        |         |         |",
+  "6        |         |         |",
+  "7        |         |         |",
+  "8        |         |         |",
+  "9        |         |         |",
+  "---------|---------|---------|",
+];
+
 class Block extends Pattern {
   constructor(x, y) {
     const items = ["xx", "xx"];
@@ -67,6 +80,42 @@ class GosperGliderGun extends Pattern {
       "           x   x                    ",
       "            xx                      ",
     ];
+    super(items, x, y);
+  }
+}
+
+class SimkinGliderGun extends Pattern {
+  constructor(x, y) {
+    const items = [
+      "xx     xx         |         |2   ",
+      "xx     xx         |         |3   ",
+      "                  |         |4   ",
+      "    xx            |         |5   ",
+      "    xx            |         |6   ",
+      "                  |         |7   ",
+      "        |         |         |8   ",
+      "        |         |         |9   ",
+      "--------|---------|          ----",
+      "23456789|123456789|   xx xx      ",
+      "        |         |  x     x     ",
+      "        |         |  x      x  xx",
+      "        |         |  xxx   x   xx",
+      "        |         |       x      ",
+      "        |         |              ",
+      "        |         |              ",
+      "        |                   |8   ",
+      "        |           xx      |9   ",
+      "--------|--------   x       |----",
+      "23456789|12345678    xxx    |1234",
+      "        |              x    |2   ",
+    ];
+    super(items, x, y);
+  }
+}
+
+class Gun extends Pattern {
+  constructor(x, y) {
+    const items = ["xxxxxxxx xxxxx   xxx      xxxxxxx xxxxx"];
     super(items, x, y);
   }
 }

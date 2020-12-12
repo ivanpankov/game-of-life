@@ -3,7 +3,7 @@ const nextButton = document.getElementById("next");
 const startButton = document.getElementById("start");
 const stopButton = document.getElementById("stop");
 
-const universe = twoGuns(70);
+const universe = twoSimkinGun();
 
 nextButton.addEventListener("click", () => {
   universe.next();
