@@ -1,10 +1,10 @@
-class Pattern {
+export class Pattern {
   constructor(items = "", x = 0, y = 0) {
-    this.items = items.map((str) => {
-      return str.split("").map((char) => {
-        return char.toLowerCase() === "x" ? 1 : 0;
-      });
-    });
+    this.items = items
+      .split("\n")
+      .map((row) => row.split("").map((c) => (c === "O" ? 1 : 0)));
+
+    console.log(this.items);
     this.x = x;
     this.y = y;
   }
@@ -40,51 +40,26 @@ class Pattern {
   }
 }
 
-const GRID = [
-  "123456789|123456789|123456789|",
-  "2        |         |         |",
-  "3        |         |         |",
-  "4        |         |         |",
-  "5        |         |         |",
-  "6        |         |         |",
-  "7        |         |         |",
-  "8        |         |         |",
-  "9        |         |         |",
-  "---------|---------|---------|",
-];
+export const BLOCK = `
+00
+00
+`;
 
-class Block extends Pattern {
-  constructor(x, y) {
-    const items = ["xx", "xx"];
-    super(items, x, y);
-  }
-}
+export const BLINKER = `000`;
 
-class Blinker extends Pattern {
-  constructor(x, y) {
-    const items = [["x"], ["x"], ["x"]];
-    super(items, x, y);
-  }
-}
+export const GOSPER_GLIDER_GUN = `
+  ........................O...........
+  ......................O.O...........
+  ............OO......OO............OO
+  ...........O...O....OO............OO
+  OO........O.....O...OO..............
+  OO........O...O.OO....O.O...........
+  ..........O.....O.......O...........
+  ...........O...O....................
+  ............OO......................
+`;
 
-class GosperGliderGun extends Pattern {
-  constructor(x, y) {
-    const items = [
-      "                        x           ",
-      "                      x x           ",
-      "            xx      xx            xx",
-      "           x   x    xx            xx",
-      "xx        x     x   xx              ",
-      "xx        x   x xx    x x           ",
-      "          x     x       x           ",
-      "           x   x                    ",
-      "            xx                      ",
-    ];
-    super(items, x, y);
-  }
-}
-
-class SimkinGliderGun extends Pattern {
+export class SimkinGliderGun extends Pattern {
   constructor(x, y) {
     const items = [
       "xx     xx         |         |2   ",
@@ -113,9 +88,37 @@ class SimkinGliderGun extends Pattern {
   }
 }
 
-class Gun extends Pattern {
+export const GUN = `OOOOOOOO.OOOOO...OOO......OOOOOOO.OOOOO`;
+
+export class Galaxy extends Pattern {
   constructor(x, y) {
-    const items = ["xxxxxxxx xxxxx   xxx      xxxxxxx xxxxx"];
+    const items = [
+      "xxxxxx xx",
+      "xxxxxx xx",
+      "       xx",
+      "xx     xx",
+      "xx     xx",
+      "xx     xx",
+      "xx       ",
+      "xx xxxxxx",
+      "xx xxxxxx",
+    ];
     super(items, x, y);
   }
 }
+
+// 56P6H1V0
+export const SPACE_SHIP_1 = `
+.....OOO..........OOO.....
+OOO.O.......OO.......O.OOO
+....O...O..O..O..O...O....
+....O.....O....O.....O....
+..........OO..OO..........
+.......O...O..O...O.......
+.......O.O......O.O.......
+........OOOOOOOOOO........
+..........O....O..........
+........O........O........
+.......O..........O.......
+........O........O........
+`;

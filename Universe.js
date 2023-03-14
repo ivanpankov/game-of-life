@@ -1,4 +1,4 @@
-class Universe {
+export class Universe {
   data = [];
   currentGeneration = new Set();
   isRunning = false;
